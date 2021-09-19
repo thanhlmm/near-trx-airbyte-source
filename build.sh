@@ -1,0 +1,1 @@
+ docker build --platform linux/amd64,linux/arm64 --push . -t mihthanh27/source_near_source_api

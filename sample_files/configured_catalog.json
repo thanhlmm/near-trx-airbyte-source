@@ -1,0 +1,210 @@
+{
+  "streams": [
+    {
+      "stream": {
+        "name": "trx",
+        "json_schema": {
+          "$schema": "http://json-schema.org/draft-04/schema#",
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number"
+            },
+            "created_at": {
+              "type": "string"
+            },
+            "updated_at": {
+              "type": "string"
+            },
+            "time": {
+              "type": "string"
+            },
+            "height": {
+              "type": "number"
+            },
+            "hash": {
+              "type": "string"
+            },
+            "block_hash": {
+              "type": "string"
+            },
+            "sender": {
+              "type": "string"
+            },
+            "receiver": {
+              "type": "string"
+            },
+            "gas_burnt": {
+              "type": "string"
+            },
+            "fee": {
+              "type": "string"
+            },
+            "public_key": {
+              "type": "string"
+            },
+            "signature": {
+              "type": "string"
+            },
+            "actions": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "data": {
+                    "type": "object",
+                    "properties": {
+                      "gas": {
+                        "type": "number"
+                      },
+                      "deposit": {
+                        "type": "string"
+                      },
+                      "method_name": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "gas",
+                      "deposit",
+                      "method_name"
+                    ]
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "data",
+                  "type"
+                ]
+              }
+            },
+            "actions_count": {
+              "type": "number"
+            },
+            "outcome": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "outcome": {
+                  "type": "object",
+                  "properties": {
+                    "logs": {
+                      "type": "array",
+                      "items": {}
+                    },
+                    "gas_burnt": {
+                      "type": "number"
+                    },
+                    "executor_id": {
+                      "type": "string"
+                    },
+                    "receipt_ids": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "tokens_burnt": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "logs",
+                    "gas_burnt",
+                    "executor_id",
+                    "receipt_ids",
+                    "tokens_burnt"
+                  ]
+                },
+                "block_hash": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "outcome",
+                "block_hash"
+              ]
+            },
+            "receipt": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "outcome": {
+                    "type": "object",
+                    "properties": {
+                      "logs": {
+                        "type": "array",
+                        "items": {}
+                      },
+                      "status": {
+                        "type": "object",
+                        "properties": {
+                          "Failure": {},
+                          "SuccessValue": {
+                            "type": "string"
+                          },
+                          "SuccessReceiptId": {}
+                        },
+                        "required": [
+                          "Failure",
+                          "SuccessValue",
+                          "SuccessReceiptId"
+                        ]
+                      },
+                      "gas_burnt": {
+                        "type": "number"
+                      },
+                      "executor_id": {
+                        "type": "string"
+                      },
+                      "receipt_ids": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "tokens_burnt": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "logs",
+                      "status",
+                      "gas_burnt",
+                      "executor_id",
+                      "receipt_ids",
+                      "tokens_burnt"
+                    ]
+                  },
+                  "block_hash": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "outcome",
+                  "block_hash"
+                ]
+              }
+            },
+            "success": {
+              "type": "boolean"
+            }
+          }
+        },
+        "supported_sync_modes": ["full_refresh", "incremental"]
+      },
+      "sync_mode": "incremental",
+      "destination_sync_mode": "append_dedup"
+    }
+  ]
+}
